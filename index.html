@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0a0a0a;
+      --surface:  #0f0f0f;
+      --border:   #1a3a1a;
+      --text:     #00ff41;
+      --muted:    #2a7a2a;
+      --accent:   #00ff41;
+      --accent2:  #00cc33;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Share Tech Mono', monospace;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      text-shadow: 0 0 0.5px #00ff41;
+    }
+
+    /* ── NAV ── */
+    /* ── REMOVE THIS BLOCK TO DELETE TAB NAVIGATION ── */
+    
+    nav {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      background: var(--surface);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 1.1rem 1.5rem;
+      transition: color 0.2s, border-color 0.2s;
+      margin-bottom: -1px;
+    }
+
+    .tab-btn:hover { color: var(--text); }
+
+    .tab-btn.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    /* ── END TAB NAVIGATION ── */
+
+    /* ── CLI TERMINAL ── */
+    #cli {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 2rem;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.8rem;
+    }
+
+    #cli-log {
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+      min-height: 0;
+    }
+
+    #cli-log .cli-line { margin-bottom: 0.1rem; }
+    #cli-log .cli-error { color: #ff4444; text-shadow: 0 0 8px #ff4444; }
+
+    #cli-input-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    #cli-prompt {
+      color: var(--accent2);
+      white-space: nowrap;
+      text-shadow: 0 0 8px #00cc33;
+    }
+
+    #cli-input {
+      background: none;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.8rem;
+      text-shadow: 0 0 8px #00ff41;
+      caret-color: var(--accent);
+      width: 100%;
+    }
+    /* ── END CLI TERMINAL ── */
+    
+
+
+    /* ── PAGES ── */
+    .page { display: none; padding: 4rem 2rem; max-width: 860px; margin: 0 auto; width: 100%; flex-direction: column; }
+    .page.active { display: flex; animation: fadeUp 0.35s ease both; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── HOME ── */
+    #home {
+      text-align: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+
+    .home-name {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: 1;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+
+    .home-name em {
+      font-style: italic;
+      font-size: clamp(1.5rem, 4vw, 3rem);
+      color: var(--accent);
+    }
+
+    .home-divider {
+      width: 48px;
+      height: 1px;
+      background: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .home-desc {
+      font-size: 0.9rem;
+      line-height: 1.9;
+      color: var(--muted);
+      max-width: 520px;
+    }
+
+
+    
+    /* ── SKILLS ── */
+    .section-title {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 2.2rem;
+      margin-bottom: 2.5rem;
+      color: var(--text);
+      text-align: center;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 1.75rem;
+      transition: border-color 0.2s;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .skill-card:hover { border-color: var(--accent); }
+
+    .skill-card.active {
+      border-color: var(--accent);
+    }
+
+    .skill-card-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .skill-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .skill-list li {
+      font-size: 0.85rem;
+      color: var(--muted);
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .skill-list li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--accent2);
+    }
+
+    .skill-panel {
+      display: none;
+      background: var(--surface);
+      border: 1px solid var(--accent);
+      border-radius: 2px;
+      padding: 1.75rem;
+      animation: fadeUp 0.25s ease both;
+    }
+
+    .skill-panel.active { display: block; }
+
+    .skill-panel-title {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .skill-panel p {
+      font-size: 0.85rem;
+      line-height: 1.9;
+      color: var(--muted);
+    }
+
+    /* ── GAMES ── */
+    .games-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .game-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 1.5rem 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+
+    .game-card:hover {
+      border-color: var(--accent2);
+      transform: translateX(4px);
+    }
+
+    .game-info {}
+    .game-title {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 1.25rem;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .game-desc {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .game-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      border: 1px solid var(--accent2);
+      padding: 0.25rem 0.6rem;
+      border-radius: 2px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── REMOVE THIS BLOCK TO DELETE TAB NAVIGATION ── -->
+
+
+  <nav>
+    <button class="tab-btn active" data-tab="home">Home</button>
+    <button class="tab-btn" data-tab="skills">Skills</button>
+    <button class="tab-btn" data-tab="games">Games</button>
+  </nav>
+
+
+  <!-- ── END TAB NAVIGATION ── -->
+
+
+  <!-- ── CLI TERMINAL ── -->
+  <div id="cli">
+    <div id="cli-log"></div>
+    <div id="cli-input-row">
+      <span id="cli-prompt">guest@dylan:~$</span>
+      <input id="cli-input" type="text" autocomplete="off" spellcheck="false" autofocus />
+    </div>
+  </div>
+  <!-- ── END CLI TERMINAL ── -->
+
+  <!-- ── HOME ── -->
+  <div id="home" class="page active">
+    <h1 class="home-name">Dylan Lepoutre<br /><em>Video Game Developer</em></h1>
+    <div class="home-divider"></div>
+    <p class="home-desc">
+      Computer Science student and Video Game Developer based in Long Beach, CA. 
+    </p>
+  </div>
+
+  <!-- ── SKILLS ── -->
+  <div id="skills" class="page">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-grid">
+
+      <div class="skill-card" data-panel="code">
+        <div class="skill-card-label">Code</div>
+        <ul class="skill-list">
+          <li>JavaScript / TypeScript</li>
+          <li>Python</li>
+          <li>HTML &amp; CSS</li>
+        </ul>
+      </div>
+
+      <div class="skill-card" data-panel="music">
+        <div class="skill-card-label">Music</div>
+        <ul class="skill-list">
+          <li>Guitar</li>
+          <li>Production / DAW</li>
+        </ul>
+      </div>
+
+      <div class="skill-card" data-panel="art">
+        <div class="skill-card-label">Art</div>
+        <ul class="skill-list">
+          <li>Digital Illustration</li>
+          <li>Pixel Art</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- expanded panels -->
+    <div class="skill-panel" id="panel-code">
+      <div class="skill-panel-title">Code</div>
+    
+      <div class="skill-panel-section">
+        <div class="skill-panel-heading">Programming Languages</div>
+        <p>Python, C++, C, C#</p>
+        <p>HTML, CSS, Tailwind, Javascript, Typescript, Node</p>
+        <p>GML (GameMaker Language), Unity, Unreal Engine</p>
+        <br></br>
+      </div>
+    
+      <div class="skill-panel-section">
+        <div class="skill-panel-heading">Bachelors Degree in Computer Science (Winter 2026)</div>
+        <p>I studied Computer Science at California State University, Long Beach from 2022-2026. I had a great experience, meeting developers throughout my time there, and participating in the VGDA (Videogame Developers Association).</p>
+        <br></br>
+      </div>
+    
+      <div class="skill-panel-section">
+        <div class="skill-panel-heading">VSCode Extension</div>
+        <p>My most recent project was a VSCode extension that counts how many keys you pressed and levels you up accordingly. I made this to show my friends who were always bragging about who has coded the most lines… This put that debate to bed!</p>
+      </div>
+    </div>
+
+    <div class="skill-panel" id="panel-music">
+      <div class="skill-panel-title">Music</div>
+      <p>Write about your music background here. Instruments, genres, projects, influences — whatever feels right.</p>
+    </div>
+
+    <div class="skill-panel" id="panel-art">
+      <div class="skill-panel-title">Art</div>
+    
+      <div class="skill-panel-section">
+        <div class="skill-panel-heading">2D</div>
+        <p>My first love with videogames is pixel art. I've been using Aseprite since 2023 to make pixel art sprites for small games and game jams. The retro style is something that in my opinion just can't be beat.</p>
+        <p style="margin-top: 0.75rem; color: var(--muted); font-size: 0.78rem;">(images)</p>
+        <p style="margin-top: 0.75rem;">I've also experimented with drawing. I got an iPad for studying, but since then have tried out digital drawing with it.</p>
+      </div>
+    
+      <div class="skill-panel-section">
+        <div class="skill-panel-heading">3D</div>
+        <p>3D modeling used to always intimidate me at first, but once I've started its grown to be one of my favorite pastimes. Down the line I hope to hone in my skills for more precise sculpting work, and a better understanding of textures and shading. For now, I've taken a liking to a more low poly retro approach.</p>
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- ── GAMES ── -->
+  <div id="games" class="page">
+    <h2 class="section-title">Games</h2>
+    <div class="games-list">
+
+      <div class="game-card">
+        <div class="game-info">
+          <div class="game-title">Game Title One</div>
+          <div class="game-desc">Short description — platform, engine, genre, whatever fits.</div>
+        </div>
+        <span class="game-tag">2024</span>
+      </div>
+
+      <div class="game-card">
+        <div class="game-info">
+          <div class="game-title">Game Title Two</div>
+          <div class="game-desc">Short description goes here.</div>
+        </div>
+        <span class="game-tag">2023</span>
+      </div>
+
+      <div class="game-card">
+        <div class="game-info">
+          <div class="game-title">Game Title Three</div>
+          <div class="game-desc">Short description goes here.</div>
+        </div>
+        <span class="game-tag">Jam</span>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab-btn');
+    const pages = document.querySelectorAll('.page');
+
+    tabs.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.tab;
+
+        tabs.forEach(t => t.classList.remove('active'));
+        pages.forEach(p => p.classList.remove('active'));
+
+        btn.classList.add('active');
+        document.getElementById(target).classList.add('active');
+      });
+    });
+
+    // skill card accordion
+    const skillCards = document.querySelectorAll('.skill-card');
+    const skillPanels = document.querySelectorAll('.skill-panel');
+
+    skillCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const target = card.dataset.panel;
+        const panel = document.getElementById('panel-' + target);
+        const isOpen = panel.classList.contains('active');
+
+        // close all
+        skillCards.forEach(c => c.classList.remove('active'));
+        skillPanels.forEach(p => p.classList.remove('active'));
+
+        // open clicked one (unless it was already open)
+        if (!isOpen) {
+          card.classList.add('active');
+          panel.classList.add('active');
+        }
+      });
+    });
+
+
+
+    // ── CLI TERMINAL ──
+    const cliInput = document.getElementById('cli-input');
+    const cliLog = document.getElementById('cli-log');
+
+    const commands = {
+      home:   () => switchTab('home'),
+      skills: () => switchTab('skills'),
+      games:  () => switchTab('games'),
+      help:   () => log('commands: home, skills, games, help, clear'),
+      clear:  () => { cliLog.innerHTML = ''; },
+    };
+
+    function switchTab(name) {
+      tabs.forEach(t => t.classList.remove('active'));
+      pages.forEach(p => p.classList.remove('active'));
+      document.querySelector(`[data-tab="${name}"]`).classList.add('active');
+      document.getElementById(name).classList.add('active');
+      log(`navigated to ${name}`);
+    }
+
+    function log(msg, isError = false) {
+      const line = document.createElement('div');
+      line.className = 'cli-line' + (isError ? ' cli-error' : '');
+      line.textContent = msg;
+      cliLog.appendChild(line);
+
+      setTimeout(() => {
+        if (cliLog.children.length > 1) {
+          cliLog.removeChild(cliLog.firstChild);
+        }
+      }, 5000); //after 5 seconds, if there is more than one message, delete oldest
+    }
+
+    cliInput.addEventListener('keydown', (e) => {
+      if (e.key !== 'Enter') return;
+      const val = cliInput.value.trim().toLowerCase();
+      if (!val) return;
+
+      log(`> ${val}`);
+
+      if (commands[val]) {
+        commands[val]();
+      } else {
+        log(`command not found: ${val} — type 'help' to see commands`, true);
+      }
+
+      cliInput.value = '';
+    });
+    // ── END CLI TERMINAL ──
+  </script>
+
+</body>
+</html>
