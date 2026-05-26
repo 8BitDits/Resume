@@ -348,6 +348,17 @@
       margin-bottom: 0.3rem;
     }
 
+    .game-title a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .game-title a:hover {
+      text-shadow: 0 0 12px #00ff41;
+      text-decoration: underline;
+    }
+
+
     .game-desc {
       font-size: 0.78rem;
       color: var(--muted);
@@ -434,31 +445,32 @@
         <div class="skill-panel">
           <div class="skill-panel-body">
             <div class="ide-line skill-panel-heading">Programming Languages</div>
-            <div class="ide-line">Python, C++, C, C#</div>
-            <div class="ide-line">HTML, CSS, Tailwind, Javascript, Typescript, Node</div>
+            <div class="ide-line">Python, C++, C</div>
+            <div class="ide-line">HTML, CSS, Javascript, Typescript</div>
             <div class="ide-line">GML (GameMaker Language), Unity, Unreal Engine</div>
             <div class="ide-line">&nbsp;</div>
             <div class="ide-line skill-panel-heading">Bachelors Degree in Computer Science (Winter 2026)</div>
             <div class="ide-line">I studied Computer Science at California State University,</div>
-            <div class="ide-line">Long Beach from 2022-2026. I had a great experience, meeting</div>
-            <div class="ide-line">developers throughout my time there, and participating in the</div>
+            <div class="ide-line">Long Beach from 2022-2026. Active member of the</div>
             <div class="ide-line">VGDA (Videogame Developers Association).</div>
             <div class="ide-line">&nbsp;</div>
+            <div class="ide-line skill-panel-heading">Game Development</div>
+            <div class="ide-line">I have been making games for years, solo and in small teams.</div>
+            <div class="ide-line">GameMaker Studio is my workspace of choice.</div>
+            <div class="ide-line">&nbsp;</div>
             <div class="ide-line skill-panel-heading">VSCode Extension</div>
-            <div class="ide-line">My most recent project was a VSCode extension that counts how</div>
-            <div class="ide-line">many keys you pressed and levels you up accordingly. I made this</div>
-            <div class="ide-line">to show my friends who were always bragging about who has coded</div>
-            <div class="ide-line">the most lines… This put that debate to bed!</div>
+            <div class="ide-line">My most recent project was CodeScore, a VSCode extension that </div>
+            <div class="ide-line">counts your keystrokes, and levels you up the more you get. </div>
             <div class="ide-line">&nbsp;</div>
             <div class="ide-line skill-panel-heading">JUCE Audio DAW Plugin</div>
-            <div class="ide-line">I recently started working on something I've been meaning to</div>
-            <div class="ide-line">try for a long time. I've always loved working on electronic</div>
-            <div class="ide-line">music in DAWs, where music plug ins are ...</div>
+            <div class="ide-line">My current project is attempting my first Plug In.</div>
+            <div class="ide-line">Im creating an instrument to use in a future game OST.</div>
           </div>
         </div>
       </div>
       <div class="skill-panel-images">
         <!-- add code project images here -->
+        <img src="CodeScore Screenshot.png" alt="description" />
         <!-- <img src="your-image.jpg" alt="description" /> -->
       </div>
     </div>
@@ -472,14 +484,13 @@
             <div class="ide-line skill-panel-heading">Instruments</div>
             <div class="ide-line">Piano, Guitar, Drums</div>
             <div class="ide-line">&nbsp;</div>
-            <div class="ide-line skill-panel-heading">Digital</div>
             <div class="ide-line skill-panel-heading">Furnace Tracker</div>
             <div class="ide-line">I've used Furnace over the past 2 years to create chiptune</div>
             <div class="ide-line">music and sound effects. Emulating old sound chips like the</div>
             <div class="ide-line">NES and Sega Genesis have helped me develop a deeper</div>
             <div class="ide-line">understanding of retro game soundtracks.</div>
             <div class="ide-line">&nbsp;</div>
-            <div class="ide-line">Ableton Live, FL Studio</div>
+            <div class="ide-line skill-panel-heading">Ableton Live, FL Studio</div>
           </div>
         </div>
       </div>
@@ -496,16 +507,13 @@
         <div class="skill-panel">
           <div class="skill-panel-body">
             <div class="ide-line skill-panel-heading">2D</div>
-            <div class="ide-line">My first love with videogames is pixel art. I've been using</div>
-            <div class="ide-line">Aseprite since 2023 to make pixel art sprites for small games</div>
-            <div class="ide-line">and game jams. The retro style is something that in my opinion</div>
-            <div class="ide-line">just can't be beat.</div>
-            <div class="ide-line">&nbsp;</div>
-            <div class="ide-line">I've also experimented with drawing. I got an iPad for studying,</div>
-            <div class="ide-line">but since then have tried out digital drawing with it.</div>
+            <div class="ide-line">Pixel art was the first form of art I attempted. It's my </div>
+            <div class="ide-line">favorite space to work in.</div>
+            <div class="ide-line"></div>
+
             <div class="ide-line">&nbsp;</div>
             <div class="ide-line skill-panel-heading">3D</div>
-            <div class="ide-line">3D modeling used to always intimidate me at first, but once</div>
+            <div class="ide-line">Low poly 3D art is a medium I want to master. I've </div>
             <div class="ide-line">I've started its grown to be one of my favorite pastimes.</div>
             <div class="ide-line">Down the line I hope to hone in my skills for more precise</div>
             <div class="ide-line">sculpting work, and a better understanding of textures and</div>
@@ -531,7 +539,7 @@
 
       <div class="game-card">
         <div class="game-info">
-          <div class="game-title">Space Slinger</div>
+          <div class="game-title"><a href="https://store.steampowered.com/app/4381530/Space_Slinger/" target="_blank">Space Slinger</a></div>
           <div class="game-desc"><i>D^2 Studios</i></div>
           <br></br>
           <div class="game-desc">An arcade roguelike where you shoot-to-move.</div>
@@ -541,18 +549,21 @@
 
       <div class="game-card">
         <div class="game-info">
-          <div class="game-title">Game Title Two</div>
-          <div class="game-desc">Short description goes here.</div>
+          <div class="game-title"><a href="https://lildyll.itch.io/nightsweep-jam" target="_blank">Night Sweep</a></div>
+          <div class="game-desc"><i>D^2 Studios</i></div>
+          <br></br>
+          <div class="game-desc">Survive the night shift with nothing but your janitor equipment.</div>
         </div>
-        <span class="game-tag">2023</span>
+        <span class="game-tag">BETA</span>
       </div>
 
       <div class="game-card">
         <div class="game-info">
-          <div class="game-title">Game Title Three</div>
-          <div class="game-desc">Short description goes here.</div>
+          <div class="game-title"><a href="https://8bitdits.itch.io/" target="_blank">Game Jams</a></div>
+          <br></br>
+          <div class="game-desc">Collection of games made for small game competitions.</div>
         </div>
-        <span class="game-tag">Jam</span>
+        <span class="game-tag">SHOWCASE</span>
       </div>
 
     </div>
@@ -597,6 +608,9 @@
     // ── CLI TERMINAL ──
     const cliInput = document.getElementById('cli-input');
     const cliLog = document.getElementById('cli-log');
+
+    log('Welcome to Dylan\'s resume!');
+    log('Available commands: home, skills, games, help, clear');
 
     const commands = {
       home:   () => switchTab('home'),
