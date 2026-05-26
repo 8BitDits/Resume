@@ -21,6 +21,8 @@
       --accent2:  #00cc33;
     }
 
+    html { overflow-y: scroll; }
+
     body {
       background: var(--bg);
       color: var(--text);
@@ -31,9 +33,7 @@
       text-shadow: 0 0 0.5px #00ff41;
     }
 
-    /* ── NAV ── */
     /* ── REMOVE THIS BLOCK TO DELETE TAB NAVIGATION ── */
-    
     nav {
       display: flex;
       gap: 0;
@@ -66,7 +66,6 @@
       color: var(--accent);
       border-bottom-color: var(--accent);
     }
-
     /* ── END TAB NAVIGATION ── */
 
     /* ── CLI TERMINAL ── */
@@ -111,8 +110,6 @@
       width: 100%;
     }
     /* ── END CLI TERMINAL ── */
-    
-
 
     /* ── PAGES ── */
     .page { display: none; padding: 4rem 2rem; max-width: 860px; margin: 0 auto; width: 100%; flex-direction: column; }
@@ -129,7 +126,6 @@
       flex-direction: column;
       align-items: center;
     }
-
 
     .home-name {
       font-family: 'Share Tech Mono', monospace;
@@ -159,8 +155,6 @@
       max-width: 520px;
     }
 
-
-    
     /* ── SKILLS ── */
     .section-title {
       font-family: 'Share Tech Mono', monospace;
@@ -175,6 +169,7 @@
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1.5rem;
       margin-bottom: 1.5rem;
+      width: 100%;
     }
 
     .skill-card {
@@ -188,10 +183,7 @@
     }
 
     .skill-card:hover { border-color: var(--accent); }
-
-    .skill-card.active {
-      border-color: var(--accent);
-    }
+    .skill-card.active { border-color: var(--accent); }
 
     .skill-card-label {
       font-size: 0.65rem;
@@ -222,36 +214,114 @@
       color: var(--accent2);
     }
 
-    .skill-panel {
+    /* ── PANEL WRAPPER: text panel + image box side by side ── */
+    .skill-panel-wrapper {
       display: none;
-      background: var(--surface);
-      border: 1px solid var(--accent);
-      border-radius: 2px;
-      padding: 1.75rem;
+      flex-direction: row;
+      gap: 1rem;
+      align-items: flex-start;
+      width: 100%;
       animation: fadeUp 0.25s ease both;
     }
 
-    .skill-panel.active { display: block; }
+    .skill-panel-wrapper.active { display: flex; }
+
+    /* ── PANEL CONTAINER: tab title above, box below ── */
+    .skill-panel-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      flex: 1;
+      min-width: 0;
+    }
 
     .skill-panel-title {
       font-size: 0.65rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 1rem;
+      display: inline-block;
+      border-top: 1px solid var(--accent);
+      border-left: 1px solid var(--accent);
+      border-right: 1px solid var(--accent);
+      padding: 0.3rem 0.75rem;
+      text-shadow: 0 0 8px #00ff41;
+      margin-bottom: -1px;
+      background: var(--surface);
     }
 
-    .skill-panel p {
+    .skill-panel {
+      background: var(--surface);
+      border: 1px solid var(--accent);
+      padding: 1.75rem;
+      width: 100%;
+      min-width: 0;
+      overflow-x: hidden;
+    }
+
+    .skill-panel-images {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      flex-shrink: 0;
+      width: 180px;
+      background: var(--surface);
+      border: 1px solid var(--accent);
+      border-radius: 2px;
+      padding: 0.75rem;
+    }
+
+    .skill-panel-images img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      display: block;
+    }
+
+    /* ── IDE LINE NUMBERS ── */
+    .skill-panel-body {
+      counter-reset: ide-line;
+    }
+
+    .skill-panel-body .ide-line {
+      counter-increment: ide-line;
+      display: flex;
+      gap: 1.5rem;
       font-size: 0.85rem;
       line-height: 1.9;
       color: var(--muted);
+      min-width: 0;
+      word-break: break-word;
+      overflow-wrap: break-word;
     }
+
+    .skill-panel-body .ide-line::before {
+      content: counter(ide-line);
+      color: var(--muted);
+      min-width: 1.5rem;
+      text-align: right;
+      flex-shrink: 0;
+      opacity: 0.5;
+      font-size: 0.8rem;
+      padding-top: 0.05rem;
+    }
+
+    .skill-panel-body .ide-line.skill-panel-heading {
+      color: var(--text);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+    }
+    /* ── END IDE LINE NUMBERS ── */
 
     /* ── GAMES ── */
     .games-list {
       display: flex;
       flex-direction: column;
       gap: 1rem;
+      width: 100%;
     }
 
     .game-card {
@@ -271,7 +341,6 @@
       transform: translateX(4px);
     }
 
-    /*.game-info {}*/
     .game-title {
       font-family: 'Share Tech Mono', monospace;
       font-size: 1.25rem;
@@ -300,23 +369,18 @@
 <body>
 
   <!-- ── REMOVE THIS BLOCK TO DELETE TAB NAVIGATION ── -->
-
-
   <nav>
     <button class="tab-btn active" data-tab="home">Home</button>
     <button class="tab-btn" data-tab="skills">Skills</button>
     <button class="tab-btn" data-tab="games">Games</button>
   </nav>
-
-
   <!-- ── END TAB NAVIGATION ── -->
-
 
   <!-- ── CLI TERMINAL ── -->
   <div id="cli">
     <div id="cli-log"></div>
     <div id="cli-input-row">
-      <span id="cli-prompt">guest@dylan:~$</span>
+      <span id="cli-prompt">hire@dylan:~$</span>
       <input id="cli-input" type="text" autocomplete="off" spellcheck="false" autofocus />
     </div>
   </div>
@@ -327,7 +391,7 @@
     <h1 class="home-name">Dylan Lepoutre<br /><em>Video Game Developer</em></h1>
     <div class="home-divider"></div>
     <p class="home-desc">
-      Computer Science student and Video Game Developer based in Long Beach, CA. 
+      Computer Science student and Video Game Developer based in Long Beach, CA.
     </p>
   </div>
 
@@ -363,51 +427,100 @@
 
     </div>
 
-    <!-- expanded panels -->
-    <div class="skill-panel" id="panel-code">
-      <div class="skill-panel-title">Code</div>
-    
-      <div class="skill-panel-section">
-        <div class="skill-panel-heading">Programming Languages</div>
-        <p>Python, C++, C, C#</p>
-        <p>HTML, CSS, Tailwind, Javascript, Typescript, Node</p>
-        <p>GML (GameMaker Language), Unity, Unreal Engine</p>
-        <br></br>
+    <!-- ── PANEL: CODE ── -->
+    <div class="skill-panel-wrapper" id="panel-code">
+      <div class="skill-panel-container">
+        <div class="skill-panel-title">Code.dyl</div>
+        <div class="skill-panel">
+          <div class="skill-panel-body">
+            <div class="ide-line skill-panel-heading">Programming Languages</div>
+            <div class="ide-line">Python, C++, C, C#</div>
+            <div class="ide-line">HTML, CSS, Tailwind, Javascript, Typescript, Node</div>
+            <div class="ide-line">GML (GameMaker Language), Unity, Unreal Engine</div>
+            <div class="ide-line">&nbsp;</div>
+            <div class="ide-line skill-panel-heading">Bachelors Degree in Computer Science (Winter 2026)</div>
+            <div class="ide-line">I studied Computer Science at California State University,</div>
+            <div class="ide-line">Long Beach from 2022-2026. I had a great experience, meeting</div>
+            <div class="ide-line">developers throughout my time there, and participating in the</div>
+            <div class="ide-line">VGDA (Videogame Developers Association).</div>
+            <div class="ide-line">&nbsp;</div>
+            <div class="ide-line skill-panel-heading">VSCode Extension</div>
+            <div class="ide-line">My most recent project was a VSCode extension that counts how</div>
+            <div class="ide-line">many keys you pressed and levels you up accordingly. I made this</div>
+            <div class="ide-line">to show my friends who were always bragging about who has coded</div>
+            <div class="ide-line">the most lines… This put that debate to bed!</div>
+            <div class="ide-line">&nbsp;</div>
+            <div class="ide-line skill-panel-heading">JUCE Audio DAW Plugin</div>
+            <div class="ide-line">I recently started working on something I've been meaning to</div>
+            <div class="ide-line">try for a long time. I've always loved working on electronic</div>
+            <div class="ide-line">music in DAWs, where music plug ins are ...</div>
+          </div>
+        </div>
       </div>
-    
-      <div class="skill-panel-section">
-        <div class="skill-panel-heading">Bachelors Degree in Computer Science (Winter 2026)</div>
-        <p>I studied Computer Science at California State University, Long Beach from 2022-2026. I had a great experience, meeting developers throughout my time there, and participating in the VGDA (Videogame Developers Association).</p>
-        <br></br>
-      </div>
-    
-      <div class="skill-panel-section">
-        <div class="skill-panel-heading">VSCode Extension</div>
-        <p>My most recent project was a VSCode extension that counts how many keys you pressed and levels you up accordingly. I made this to show my friends who were always bragging about who has coded the most lines… This put that debate to bed!</p>
-      </div>
-    </div>
-
-    <div class="skill-panel" id="panel-music">
-      <div class="skill-panel-title">Music</div>
-      <p>Write about your music background here. Instruments, genres, projects, influences — whatever feels right.</p>
-    </div>
-
-    <div class="skill-panel" id="panel-art">
-      <div class="skill-panel-title">Art</div>
-    
-      <div class="skill-panel-section">
-        <div class="skill-panel-heading">2D</div>
-        <p>My first love with videogames is pixel art. I've been using Aseprite since 2023 to make pixel art sprites for small games and game jams. The retro style is something that in my opinion just can't be beat.</p>
-        <p style="margin-top: 0.75rem; color: var(--muted); font-size: 0.78rem;">(images)</p>
-        <p style="margin-top: 0.75rem;">I've also experimented with drawing. I got an iPad for studying, but since then have tried out digital drawing with it.</p>
-      </div>
-    
-      <div class="skill-panel-section">
-        <div class="skill-panel-heading">3D</div>
-        <p>3D modeling used to always intimidate me at first, but once I've started its grown to be one of my favorite pastimes. Down the line I hope to hone in my skills for more precise sculpting work, and a better understanding of textures and shading. For now, I've taken a liking to a more low poly retro approach.</p>
+      <div class="skill-panel-images">
+        <!-- add code project images here -->
+        <!-- <img src="your-image.jpg" alt="description" /> -->
       </div>
     </div>
 
+    <!-- ── PANEL: MUSIC ── -->
+    <div class="skill-panel-wrapper" id="panel-music">
+      <div class="skill-panel-container">
+        <div class="skill-panel-title">Music.dyl</div>
+        <div class="skill-panel">
+          <div class="skill-panel-body">
+            <div class="ide-line skill-panel-heading">Instruments</div>
+            <div class="ide-line">Piano, Guitar, Drums</div>
+            <div class="ide-line">&nbsp;</div>
+            <div class="ide-line skill-panel-heading">Digital</div>
+            <div class="ide-line skill-panel-heading">Furnace Tracker</div>
+            <div class="ide-line">I've used Furnace over the past 2 years to create chiptune</div>
+            <div class="ide-line">music and sound effects. Emulating old sound chips like the</div>
+            <div class="ide-line">NES and Sega Genesis have helped me develop a deeper</div>
+            <div class="ide-line">understanding of retro game soundtracks.</div>
+            <div class="ide-line">&nbsp;</div>
+            <div class="ide-line">Ableton Live, FL Studio</div>
+          </div>
+        </div>
+      </div>
+      <div class="skill-panel-images">
+        <!-- add music images here -->
+        <!-- <img src="your-image.jpg" alt="description" /> -->
+      </div>
+    </div>
+
+    <!-- ── PANEL: ART ── -->
+    <div class="skill-panel-wrapper" id="panel-art">
+      <div class="skill-panel-container">
+        <div class="skill-panel-title">Art.dyl</div>
+        <div class="skill-panel">
+          <div class="skill-panel-body">
+            <div class="ide-line skill-panel-heading">2D</div>
+            <div class="ide-line">My first love with videogames is pixel art. I've been using</div>
+            <div class="ide-line">Aseprite since 2023 to make pixel art sprites for small games</div>
+            <div class="ide-line">and game jams. The retro style is something that in my opinion</div>
+            <div class="ide-line">just can't be beat.</div>
+            <div class="ide-line">&nbsp;</div>
+            <div class="ide-line">I've also experimented with drawing. I got an iPad for studying,</div>
+            <div class="ide-line">but since then have tried out digital drawing with it.</div>
+            <div class="ide-line">&nbsp;</div>
+            <div class="ide-line skill-panel-heading">3D</div>
+            <div class="ide-line">3D modeling used to always intimidate me at first, but once</div>
+            <div class="ide-line">I've started its grown to be one of my favorite pastimes.</div>
+            <div class="ide-line">Down the line I hope to hone in my skills for more precise</div>
+            <div class="ide-line">sculpting work, and a better understanding of textures and</div>
+            <div class="ide-line">shading. For now, I've taken a liking to a more low poly</div>
+            <div class="ide-line">retro approach.</div>
+          </div>
+        </div>
+      </div>
+      <div class="skill-panel-images">
+        <!-- add art images here -->
+        <img src="testimg.png" alt="pixel art sprite" />
+        <!-- <img src="drawing-1.jpg" alt="digital drawing" /> -->
+        <!-- <img src="3d-model-1.png" alt="3d model" /> -->
+      </div>
+    </div>
 
   </div>
 
@@ -418,10 +531,12 @@
 
       <div class="game-card">
         <div class="game-info">
-          <div class="game-title">Game Title One</div>
-          <div class="game-desc">Short description — platform, engine, genre, whatever fits.</div>
+          <div class="game-title">Space Slinger</div>
+          <div class="game-desc"><i>D^2 Studios</i></div>
+          <br></br>
+          <div class="game-desc">An arcade roguelike where you shoot-to-move.</div>
         </div>
-        <span class="game-tag">2024</span>
+        <span class="game-tag">DEMO</span>
       </div>
 
       <div class="game-card">
@@ -450,10 +565,8 @@
     tabs.forEach(btn => {
       btn.addEventListener('click', () => {
         const target = btn.dataset.tab;
-
         tabs.forEach(t => t.classList.remove('active'));
         pages.forEach(p => p.classList.remove('active'));
-
         btn.classList.add('active');
         document.getElementById(target).classList.add('active');
       });
@@ -461,7 +574,7 @@
 
     // skill card accordion
     const skillCards = document.querySelectorAll('.skill-card');
-    const skillPanels = document.querySelectorAll('.skill-panel');
+    const skillPanels = document.querySelectorAll('.skill-panel-wrapper');
 
     skillCards.forEach(card => {
       card.addEventListener('click', () => {
@@ -480,8 +593,6 @@
         }
       });
     });
-
-
 
     // ── CLI TERMINAL ──
     const cliInput = document.getElementById('cli-input');
@@ -513,7 +624,7 @@
         if (cliLog.children.length > 1) {
           cliLog.removeChild(cliLog.firstChild);
         }
-      }, 5000); //after 5 seconds, if there is more than one message, delete oldest
+      }, 5000); // after 5 seconds, if there is more than one message, delete oldest
     }
 
     cliInput.addEventListener('keydown', (e) => {
