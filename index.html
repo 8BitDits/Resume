@@ -31,6 +31,7 @@
       display: flex;
       flex-direction: column;
       text-shadow: 0 0 0.5px #00ff41;
+      padding-bottom: 4rem;
     }
 
     /* ── REMOVE THIS BLOCK TO DELETE TAB NAVIGATION ── */
@@ -71,10 +72,16 @@
     /* ── CLI TERMINAL ── */
     #cli {
       background: var(--surface);
-      border-bottom: 1px solid var(--border);
+      border-top: 1px solid var(--border);
+      border-bottom: none;
       padding: 0.6rem 2rem;
       font-family: 'Share Tech Mono', monospace;
       font-size: 0.8rem;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
     }
 
     #cli-log {
@@ -153,6 +160,7 @@
       line-height: 1.9;
       color: var(--muted);
       max-width: 520px;
+      white-space: nowrap;
     }
 
     /* ── SKILLS ── */
@@ -387,15 +395,6 @@
   </nav>
   <!-- ── END TAB NAVIGATION ── -->
 
-  <!-- ── CLI TERMINAL ── -->
-  <div id="cli">
-    <div id="cli-log"></div>
-    <div id="cli-input-row">
-      <span id="cli-prompt">hire@dylan:~$</span>
-      <input id="cli-input" type="text" autocomplete="off" spellcheck="false" autofocus />
-    </div>
-  </div>
-  <!-- ── END CLI TERMINAL ── -->
 
   <!-- ── HOME ── -->
   <div id="home" class="page active">
@@ -414,25 +413,27 @@
       <div class="skill-card" data-panel="code">
         <div class="skill-card-label">Code</div>
         <ul class="skill-list">
-          <li>JavaScript / TypeScript</li>
-          <li>Python</li>
-          <li>HTML &amp; CSS</li>
+          <li>Programming Languages</li>
+          <li>Game Development</li>
+          <li>Personal Projects</li>
         </ul>
       </div>
 
-      <div class="skill-card" data-panel="music">
-        <div class="skill-card-label">Music</div>
+      <div class="skill-card" data-panel="audio">
+        <div class="skill-card-label">Audio</div>
         <ul class="skill-list">
-          <li>Guitar</li>
-          <li>Production / DAW</li>
+          <li>Music</li>
+          <li>Sound Effects</li>
+          <li>Production</li>
         </ul>
       </div>
 
       <div class="skill-card" data-panel="art">
         <div class="skill-card-label">Art</div>
         <ul class="skill-list">
-          <li>Digital Illustration</li>
-          <li>Pixel Art</li>
+          <li>2D</li>
+          <li>3D</li>
+          <li>Animations</li>
         </ul>
       </div>
 
@@ -449,22 +450,18 @@
             <div class="ide-line">HTML, CSS, Javascript, Typescript</div>
             <div class="ide-line">GML (GameMaker Language), Unity, Unreal Engine</div>
             <div class="ide-line">&nbsp;</div>
-            <div class="ide-line skill-panel-heading">Bachelors Degree in Computer Science (Winter 2026)</div>
-            <div class="ide-line">I studied Computer Science at California State University,</div>
-            <div class="ide-line">Long Beach from 2022-2026. Active member of the</div>
-            <div class="ide-line">VGDA (Videogame Developers Association).</div>
-            <div class="ide-line">&nbsp;</div>
             <div class="ide-line skill-panel-heading">Game Development</div>
             <div class="ide-line">I have been making games for years, solo and in small teams.</div>
-            <div class="ide-line">GameMaker Studio is my workspace of choice.</div>
+            <div class="ide-line">GameMaker Studio is my workspace of choice. Active member of </div>
+            <div class="ide-line">CSULB's Videogame Developers Association. </div>
             <div class="ide-line">&nbsp;</div>
-            <div class="ide-line skill-panel-heading">VSCode Extension</div>
-            <div class="ide-line">My most recent project was CodeScore, a VSCode extension that </div>
-            <div class="ide-line">counts your keystrokes, and levels you up the more you get. </div>
-            <div class="ide-line">&nbsp;</div>
-            <div class="ide-line skill-panel-heading">JUCE Audio DAW Plugin</div>
-            <div class="ide-line">My current project is attempting my first Plug In.</div>
-            <div class="ide-line">Im creating an instrument to use in a future game OST.</div>
+            <div class="ide-line skill-panel-heading">Personal Projects</div>
+            <div class="ide-line">CodeScore</div>
+            <div class="ide-line">I used Typescript in my most recent project: a VSCode extension </div>
+            <div class="ide-line">that counts your keystrokes, and levels you up the more you code. </div>
+            <div class="ide-line">JUCE Audio Plugin</div>
+            <div class="ide-line">A project I'm currently working on uses C++ to make an </div>
+            <div class="ide-line">audio Plug In. I'm making an instrument for a future OST.</div>
           </div>
         </div>
       </div>
@@ -476,26 +473,26 @@
     </div>
 
     <!-- ── PANEL: MUSIC ── -->
-    <div class="skill-panel-wrapper" id="panel-music">
+    <div class="skill-panel-wrapper" id="panel-audio">
       <div class="skill-panel-container">
-        <div class="skill-panel-title">Music.dyl</div>
+        <div class="skill-panel-title">Audio.dyl</div>
         <div class="skill-panel">
           <div class="skill-panel-body">
-            <div class="ide-line skill-panel-heading">Instruments</div>
+            <div class="ide-line skill-panel-heading">Music</div>
             <div class="ide-line">Piano, Guitar, Drums</div>
             <div class="ide-line">&nbsp;</div>
-            <div class="ide-line skill-panel-heading">Furnace Tracker</div>
-            <div class="ide-line">I've used Furnace over the past 2 years to create chiptune</div>
-            <div class="ide-line">music and sound effects. Emulating old sound chips like the</div>
-            <div class="ide-line">NES and Sega Genesis have helped me develop a deeper</div>
-            <div class="ide-line">understanding of retro game soundtracks.</div>
+            <div class="ide-line skill-panel-heading">Sound Effects</div>
+            <div class="ide-line"></div>
+            <div class="ide-line"></div>
+            <div class="ide-line"></div>
+            <div class="ide-line"></div>
             <div class="ide-line">&nbsp;</div>
-            <div class="ide-line skill-panel-heading">Ableton Live, FL Studio</div>
+            <div class="ide-line skill-panel-heading">Production</div>
           </div>
         </div>
       </div>
       <div class="skill-panel-images">
-        <!-- add music images here -->
+        <!-- add audio images here -->
         <!-- <img src="your-image.jpg" alt="description" /> -->
       </div>
     </div>
@@ -507,18 +504,10 @@
         <div class="skill-panel">
           <div class="skill-panel-body">
             <div class="ide-line skill-panel-heading">2D</div>
-            <div class="ide-line">Pixel art was the first form of art I attempted. It's my </div>
-            <div class="ide-line">favorite space to work in.</div>
-            <div class="ide-line"></div>
-
             <div class="ide-line">&nbsp;</div>
             <div class="ide-line skill-panel-heading">3D</div>
-            <div class="ide-line">Low poly 3D art is a medium I want to master. I've </div>
-            <div class="ide-line">I've started its grown to be one of my favorite pastimes.</div>
-            <div class="ide-line">Down the line I hope to hone in my skills for more precise</div>
-            <div class="ide-line">sculpting work, and a better understanding of textures and</div>
-            <div class="ide-line">shading. For now, I've taken a liking to a more low poly</div>
-            <div class="ide-line">retro approach.</div>
+            <div class="ide-line">&nbsp;</div>
+            <div class="ide-line skill-panel-heading">Animations</div>
           </div>
         </div>
       </div>
@@ -569,6 +558,18 @@
     </div>
   </div>
 
+
+  <!-- ── CLI TERMINAL ── -->
+  <div id="cli">
+    <div id="cli-log"></div>
+    <div id="cli-input-row">
+      <span id="cli-prompt">hire@dylan:~$</span>
+      <input id="cli-input" type="text" autocomplete="off" spellcheck="false" autofocus />
+    </div>
+  </div>
+  <!-- ── END CLI TERMINAL ── -->
+
+
   <script>
     const tabs = document.querySelectorAll('.tab-btn');
     const pages = document.querySelectorAll('.page');
@@ -610,14 +611,14 @@
     const cliLog = document.getElementById('cli-log');
 
     log('Welcome to Dylan\'s resume!');
-    log('Available commands: home, skills, games, help, clear');
+    log('Available commands: home, skills, games, help, hire');
 
     const commands = {
       home:   () => switchTab('home'),
       skills: () => switchTab('skills'),
       games:  () => switchTab('games'),
-      help:   () => log('commands: home, skills, games, help, clear'),
-      clear:  () => { cliLog.innerHTML = ''; },
+      help:   () => log('commands: home, skills, games, help, hire'),
+      hire: () => { window.location.href = 'mailto:your@email.com?subject=Hiring%20Inquiry&body=Hi%20Dylan%2C%20I%20came%20across%20your%20resume%20and%20wanted%20to%20get%20in%20touch.'; },
     };
 
     function switchTab(name) {
