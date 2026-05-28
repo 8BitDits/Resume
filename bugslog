@@ -15,12 +15,57 @@
 
 
 
-     _
-    ||\
-    ||
-    ||
-   /-\
-  | A U D I O
-  \ _ /
+  _
+ ||\
+ ||
+ ||
+ /-\
+| A U D I O
+\ _ /
+
+
+    _
+   ||\
+   ||
+   ||
+ / -  \
+|  A U D I O
+ \ _  /
+
+
+
+        ___==___
+    _===        ===_
+   / /            \ \
+   ||              ||
+   ||              ||
+ / -  \          /  - \
+|  A U D I O    |  [*] |
+ \ _  /          \  _ /
+
+
+
+
+
+
+  ,.__,_,___,,
+  \ \  \ \  \@\,
+   ||   @|@@|@|  
+  | / , / @/ /, 
+ | |   |,@@|@|
+ \_\,_____@_/
+   / /     
+  / /     @ R T
+ / /
+|_/         @
+
+
+
+
+
+
+-maybe even make the ascii stuff be embedded on the page, and the muted color at first. Then when you hover/activate it, it turns green.Remove borders around the color now, it will be signified as on with the brighter accent color now.
+
+
 -make everything in the cli clickable because its annoying to click into to type. Or just make the keyboard waiting 24/7, and keep cursor blinking. i doubt its expensive
 -
