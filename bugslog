@@ -40,7 +40,7 @@
    ||              ||
    ||              ||
  / -  \          /  - \
-|  A U D I O    |  ( ) |
+| ( A U D I O   |  ( ) |
  \ _  /          \  _ /
 
 
@@ -113,3 +113,5 @@
 -!!!!!make everything in the cli clickable because its annoying to click into to type. Or just make the keyboard waiting 24/7, and keep cursor blinking. i doubt its expensive
 
 -make the ART TAB trigger a rainbow RGB sequence on the colors, to make it feel like a gaming pc. 
+
+-make JUCE audio plug in link to the github repo later when more to show
