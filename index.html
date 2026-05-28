@@ -190,39 +190,25 @@
       padding: 1.75rem;
       transition: border-color 0.2s;
       cursor: pointer;
-      user-select: none;
+      /* user-select: none;*/
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
 
     .skill-card:hover { border-color: var(--accent); }
     .skill-card.active { border-color: var(--accent); }
 
-    .skill-card-label {
-      font-size: 0.65rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+    .skill-card-ascii {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.75rem;
       color: var(--accent);
-      margin-bottom: 1rem;
-    }
-
-    .skill-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .skill-list li {
-      font-size: 0.85rem;
-      color: var(--muted);
-      padding-left: 1rem;
-      position: relative;
-    }
-
-    .skill-list li::before {
-      content: '›';
-      position: absolute;
-      left: 0;
-      color: var(--accent2);
+      text-shadow: 0 0 6px #00ff41;
+      line-height: 1.4;
+      white-space: pre;
+      transform-origin: center;
+      transform: scale(0.85);
     }
 
     /* ── PANEL WRAPPER: text panel + image box side by side ── */
@@ -276,19 +262,18 @@
       gap: 0.75rem;
       flex-shrink: 0;
       width: 180px;
-      background: var(--surface);
-      border: 1px solid var(--accent);
-      border-radius: 2px;
-      padding: 0.75rem;
+      margin-top: 1.65rem;
     }
 
     .skill-panel-images img {
       width: 100%;
       height: 160px;
       object-fit: cover;
-      border: 1px solid var(--border);
+      border: 1px solid var(--accent);
       border-radius: 2px;
       display: block;
+      padding: 0.5rem;
+      background: var(--surface);
     }
 
     /* ── IDE LINE NUMBERS ── */
@@ -426,30 +411,23 @@
     <div class="skills-grid">
 
       <div class="skill-card" data-panel="code">
-        <div class="skill-card-label">Code</div>
-        <ul class="skill-list">
-          <li>Programming Languages</li>
-          <li>Game Development</li>
-          <li>Personal Projects</li>
-        </ul>
+        <pre class="skill-card-ascii">
+    ======================         
+    || *~~~~~~~~~~~~~~~ ||
+    || *~~~~ CODE ~~~~~ ||
+    || *~~~~~~~~~~~~~~~ ||
+    ======================
+            __|_|__</pre>
       </div>
 
       <div class="skill-card" data-panel="audio">
-        <div class="skill-card-label">Audio</div>
-        <ul class="skill-list">
-          <li>Music</li>
-          <li>Sound Effects</li>
-          <li>Production</li>
-        </ul>
+        <pre class="skill-card-ascii">
+</pre>
       </div>
 
       <div class="skill-card" data-panel="art">
-        <div class="skill-card-label">Art</div>
-        <ul class="skill-list">
-          <li>2D</li>
-          <li>3D</li>
-          <li>Animations</li>
-        </ul>
+        <pre class="skill-card-ascii">
+</pre>
       </div>
 
     </div>
@@ -482,13 +460,13 @@
         </div>
       </div>
       <div class="skill-panel-images">
-        <!-- add code project images here -->
         <img src="CodeScore Screenshot.png" alt="description" />
-        <!-- <img src="your-image.jpg" alt="description" /> -->
+        <img src="CodeScore Screenshot.png" alt="description" />
+        <img src="CodeScore Screenshot.png" alt="description" />
       </div>
     </div>
 
-    <!-- ── PANEL: MUSIC ── -->
+    <!-- ── PANEL: AUDIO ── -->
     <div class="skill-panel-wrapper" id="panel-audio">
       <div class="skill-panel-container">
         <div class="skill-panel-title">Audio.dyl</div>
@@ -509,7 +487,6 @@
       </div>
       <div class="skill-panel-images">
         <!-- add audio images here -->
-        <!-- <img src="IMAGEEE.png" alt="description" />  -->
       </div>
     </div>
 
@@ -528,10 +505,7 @@
         </div>
       </div>
       <div class="skill-panel-images">
-        <!-- add art images here -->
         <img src="testimg.png" alt="pixel art sprite" />
-        <!-- <img src="drawing-1.jpg" alt="digital drawing" /> -->
-        <!-- <img src="3d-model-1.png" alt="3d model" /> -->
       </div>
     </div>
 
@@ -569,10 +543,10 @@
       <div class="game-card-container">
         <span class="game-tag">SHOWCASE</span>
         <div class="game-card">
-          <div class="game-title"><a href="https://8bitdits.itch.io/" target="_blank">Game Jams</a></div>
+          <div class="game-title"><a href="https://8bitdits.i tch.io/" target="_blank">Game Jams</a></div>
           <div class="game-desc"><i>8bitdits</i></div>
-          <br></br>
-          <br></br>
+          <br />
+          <br />
           <div class="game-desc">Collection of games made for day/week long competitions.</div>
         </div>
       </div>
@@ -621,10 +595,8 @@
         skillPanels.forEach(p => p.classList.remove('active'));
 
         // open clicked one (unless it was already open)
-        if (!isOpen) {
-          card.classList.add('active');
-          panel.classList.add('active');
-        }
+        card.classList.add('active');
+        panel.classList.add('active');
       });
     });
 
