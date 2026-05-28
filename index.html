@@ -170,7 +170,7 @@
     .section-title {
       font-family: 'Share Tech Mono', monospace;
       font-size: 2.2rem;
-      margin-bottom: 2.5rem;
+      margin-bottom: 0.5rem;
       color: var(--text);
       text-align: center;
     }
@@ -180,6 +180,7 @@
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1.5rem;
       margin-bottom: 1.5rem;
+      margin-top: 0.5rem;
       width: 100%;
     }
 
@@ -194,11 +195,6 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-    }
-
-    .skill-card:hover .skill-card-ascii {
-      color: var(--accent2);
-      text-shadow: 0 0 8px #00cc33;
     }
 
     .skill-card.active .skill-card-ascii {
@@ -217,6 +213,11 @@
       transform: scale(0.85);
       /*user-select: none;*/
       transition: color 0.2s, text-shadow 0.2s;
+    }
+
+    .skill-card-ascii:hover {
+      color: var(--accent2);
+      text-shadow: 0 0 8px #00cc33;
     }
 
     /* ── PANEL WRAPPER: text panel + image box side by side ── */
@@ -486,7 +487,7 @@
             <div class="ide-line">GameMaker Studio is my workspace of choice. Active member of </div>
             <div class="ide-line">CSULB's Videogame Developers Association. </div>
             <div class="ide-line">&nbsp;</div>
-            <div class="ide-line"><i>Steam Release</i></div>
+            <div class="ide-line"><i><a href="https://store.steampowered.com/app/4381530/Space_Slinger/" target="_blank">Steam Release</a></i></div>
             <div class="ide-line">Experience releasing a videogame on Steam. I'm half of</div>
             <div class="ide-line">the two man team that created Space Slinger.</div>
             <div class="ide-line">&nbsp;</div>
@@ -514,16 +515,21 @@
         <div class="skill-panel-title">Audio.dyl</div>
         <div class="skill-panel">
           <div class="skill-panel-body">
-            <div class="ide-line skill-panel-heading">Music</div>
-            <div class="ide-line">Piano, Guitar, Drums</div>
+            <div class="ide-line skill-panel-heading">Music & SFX</div>
+            <div class="ide-line"><i>Commercial</i></div>
+            <div class="ide-line">Lead Audio Engineer of D^2 Studios</div>
+            <div class="ide-line"><span>(Summer 2026) Releasing OST for Space Slinger on <a href="https://open.spotify.com/artist/1II8bdUSXYn2hpmMGQnMRM?si=vxSUhYA5RtaTZq_465Aryg" target="_blank">Spotify</a> </span></div>
+            <div class="ide-line"><span>Crafted an <a href="https://8bitdits.itch.io/sound-bundle" target="_blank">NES Platformer Sound Effects</a> bundle</span></div>
             <div class="ide-line">&nbsp;</div>
-            <div class="ide-line skill-panel-heading">Sound Effects</div>
-            <div class="ide-line"></div>
-            <div class="ide-line"></div>
-            <div class="ide-line"></div>
-            <div class="ide-line"></div>
+            <div class="ide-line"><i>Recreational</i></div>
+            <div class="ide-line">Lead audio engineer on 20+ game jam competitions</div>
+            <div class="ide-line">Hundreds of tailored sound effects for game projects</div>
+            <div class="ide-line">5 years playing in a recreational band</div>
             <div class="ide-line">&nbsp;</div>
             <div class="ide-line skill-panel-heading">Production</div>
+            <div class="ide-line">DAWs: Ableton Live, FL Studio</div>
+            <div class="ide-line">Chiptunes: Furnace Tracker (retro sound chip emulator)</div>
+            <div class="ide-line">Set up home recording studio to track acoustic instruments</div>
           </div>
         </div>
       </div>
@@ -539,10 +545,23 @@
         <div class="skill-panel">
           <div class="skill-panel-body">
             <div class="ide-line skill-panel-heading">2D</div>
+            <div class="ide-line"><i>Commercial</i></div>
+            <div class="ide-line">Hand crafted dozens of player and enemy sprites for Space Slinger</div>
             <div class="ide-line">&nbsp;</div>
-            <div class="ide-line skill-panel-heading">3D</div>
+            <div class="ide-line"><i>Recreational</i></div>
+            <div class="ide-line">4 years pixel art experience using Aseprite</div>
+            <div class="ide-line">Stylized characters, environments, and UI elements</div>
+            <div class="ide-line">Hundreds of assets for personal projects and game jams</div>
+            <div class="ide-line">Hobbyist photo editing in GIMP</div>  
+            <div class="ide-line">&nbsp;</div>
+            <div class="ide-line skill-panel-heading">3D</div>  
+            <div class="ide-line">Experiences with modeling low poly characters in Blender</div>
+            <div class="ide-line">Retro stylized 3D characters in PicoCAD</div>
             <div class="ide-line">&nbsp;</div>
             <div class="ide-line skill-panel-heading">Animations</div>
+            <div class="ide-line">Animated 2D in Aseprite</div>
+            <div class="ide-line">Bone animations in Blender</div>
+            <div class="ide-line"></div>
           </div>
         </div>
       </div>
