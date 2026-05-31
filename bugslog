@@ -6,12 +6,12 @@
 
 5/28
 -maybe instead of the "CODE >Programming Languages" boxes at the top that trigger the dropdowns, it can be ASCII art of stuff with the name underneath.
-     =====================         
-     || *~~~~~~~~~~~~~~ ||
-     || *~~~~ CODE ~~~~ ||
-     || *~~~~~~~~~~~~~~ ||
-     =====================
-            __|__|__
+=-------------------=
+|  *~~~~~~~~~~~~~~  |
+|  *~~~~ CODE ~~~~  |
+|  *~~~~~~~~~~~~~~  |
+=-------------------=
+       __|__|__
 
 
 
@@ -128,4 +128,7 @@
 5/29
 -make the cli a bit bigger
 -find better way to go about the hire command
--
+
+
+5/31
+-set up the cli to display "changed to __ tab" when you CLICK on it too, so it feels more interactive without always having to type
