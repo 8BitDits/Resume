@@ -31,10 +31,11 @@
       display: flex;
       flex-direction: column;
       text-shadow: 0 0 0.5px #00ff41;
-      padding-bottom: 4rem;
+      padding-bottom: 6rem;
     }
 
     /* ── REMOVE THIS BLOCK TO DELETE TAB NAVIGATION ── */
+
     nav {
       display: flex;
       gap: 0;
@@ -67,6 +68,7 @@
       color: var(--accent);
       border-bottom-color: var(--accent);
     }
+
     /* ── END TAB NAVIGATION ── */
 
     /* ── CLI TERMINAL ── */
@@ -74,9 +76,9 @@
       background: var(--surface);
       border-top: 1px solid var(--border);
       border-bottom: none;
-      padding: 0.6rem 2rem;
+      padding: 1rem 2rem;
       font-family: 'Share Tech Mono', monospace;
-      font-size: 0.8rem;
+      font-size: 1.3rem;
       position: fixed;
       bottom: 0;
       left: 0;
@@ -111,7 +113,7 @@
       outline: none;
       color: var(--text);
       font-family: 'Share Tech Mono', monospace;
-      font-size: 0.8rem;
+      font-size: 1.3rem;
       text-shadow: 0 0 8px #00ff41;
       caret-color: var(--accent);
       width: 100%;
@@ -453,12 +455,15 @@
 <body>
 
   <!-- ── REMOVE THIS BLOCK TO DELETE TAB NAVIGATION ── -->
+
   <nav>
     <button class="tab-btn active" data-tab="home">Home</button>
     <button class="tab-btn" data-tab="skills">Skills</button>
     <button class="tab-btn" data-tab="games">Games</button>
   </nav>
+
   <!-- ── END TAB NAVIGATION ── -->
+
 
 
   <!-- ── HOME ── -->
@@ -486,14 +491,14 @@
 
       <div class="skill-card" data-panel="audio">
         <pre class="skill-card-ascii">
-        ___==___
-    _===        ===_
-   / /            \ \
-   ||              ||
-   ||              ||
- / -  \          /  - \
-| ( A U D I O   |  ( ) |
- \ _  /          \  _ /</pre>
+        ______
+    _===      ===_
+   / /          \ \
+   ||            ||
+   ||            ||
+ / -  \        /  - \
+| ( A U D I O |  ( ) |
+ \ _  /        \  _ /</pre>
       </div>
 
       <div class="skill-card" data-panel="art">
@@ -767,9 +772,7 @@
 
     // always keep CLI input waiting
     document.addEventListener('click', () => {
-      if (!window.getSelection().toString()) {
-        cliInput.focus();
-      }
+      cliInput.focus();
     });
 
 
