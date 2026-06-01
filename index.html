@@ -634,7 +634,9 @@
           <div class="game-title"><a href="https://store.steampowered.com/app/4381530/Space_Slinger/" target="_blank">Space Slinger</a></div>
           <div class="game-desc"><i>D^2 Studios</i></div>
           <div class="sprite-container">
-            <img src="spaceslingertest.png" alt="Space Slinger sprite" style="width: 64px; height: 64px; image-rendering: pixelated;" />
+            <a href="https://store.steampowered.com/app/4381530/Space_Slinger/" target="_blank">
+              <img src="spaceslingertest.png" alt="Space Slinger sprite" style="width: 64px; height: 64px; image-rendering: pixelated;" />
+            </a>
           </div>
           <div class="game-desc">An arcade roguelike where you shoot-to-move.</div>
         </div>
@@ -646,7 +648,9 @@
           <div class="game-title"><a href="https://lildyll.itch.io/nightsweep-jam" target="_blank">Night Sweep</a></div>
           <div class="game-desc"><i>D^2 Studios</i></div>
           <div class="sprite-container">
-            <img src="nightsweeptest.png" alt="Night Sweep sprite" style="width: 76px; height: 56px; image-rendering: pixelated;" />
+            <a href="https://lildyll.itch.io/nightsweep-jam" target="_blank">
+              <img src="nightsweeptest.png" alt="Night Sweep sprite" style="width: 76px; height: 56px; image-rendering: pixelated;" />
+            </a>
           </div>
           <div class="game-desc">Survive the night shift with nothing but your janitor equipment.</div>
         </div>
@@ -714,6 +718,12 @@
         log(`opened ${target}.dyl`);
       });
     });
+
+
+    // auto-open code panel on skills tab load
+    document.querySelector('[data-panel="code"]').classList.add('active');
+    document.getElementById('panel-code').classList.add('active');
+
 
     // ── CLI TERMINAL ──
     const cliInput = document.getElementById('cli-input');
