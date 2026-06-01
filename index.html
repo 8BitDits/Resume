@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Resume</title>
+  <title>Dylan's Resume</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
@@ -693,6 +693,7 @@
         pages.forEach(p => p.classList.remove('active'));
         btn.classList.add('active');
         document.getElementById(target).classList.add('active');
+        log(`navigated to ${target}`);
       });
     });
 
@@ -704,15 +705,13 @@
       card.addEventListener('click', () => {
         const target = card.dataset.panel;
         const panel = document.getElementById('panel-' + target);
-        const isOpen = panel.classList.contains('active');
 
-        // close all
         skillCards.forEach(c => c.classList.remove('active'));
         skillPanels.forEach(p => p.classList.remove('active'));
 
-        // open clicked one (unless it was already open)
         card.classList.add('active');
         panel.classList.add('active');
+        log(`opened ${target}.dyl`);
       });
     });
 
@@ -720,8 +719,8 @@
     const cliInput = document.getElementById('cli-input');
     const cliLog = document.getElementById('cli-log');
 
-    log('Welcome to Dylan\'s resume!');
-    log('Available commands: home, skills, games, help, hire');
+    log('welcome to dylan\'s resume!');
+    log('commands: skills, games, home, help, hire');
 
     const commands = {
       home:   () => switchTab('home'),
