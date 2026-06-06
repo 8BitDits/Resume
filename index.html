@@ -730,14 +730,13 @@
     const cliLog = document.getElementById('cli-log');
 
     log('welcome to dylan\'s resume!');
-    log('commands: skills, games, home, help, hire');
+    log('commands: skills, games, home, help');
 
     const commands = {
       home:   () => switchTab('home'),
       skills: () => switchTab('skills'),
       games:  () => switchTab('games'),
-      help:   () => log('commands: home, skills, games, help, hire'),
-      hire: () => { window.location.href = 'mailto:your@email.com?subject=Hiring%20Inquiry&body=Hi%20Dylan%2C%20I%20came%20across%20your%20resume%20and%20wanted%20to%20get%20in%20touch.'; },
+      help:   () => log('commands: home, skills, games, help'),
     };
 
     function switchTab(name) {
